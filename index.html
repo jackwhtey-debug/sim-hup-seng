@@ -193,7 +193,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 .nav-logo {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 12px;
   color: var(--espresso);
 }
@@ -211,14 +211,16 @@ img { display: block; max-width: 100%; height: auto; }
   text-transform: uppercase;
   color: var(--mist);
 }
-   .nav-logo-img {
-  height: 36px;
+
+/* LOGO IMAGE */
+.nav-logo-img {
+  height: 40px;
   width: auto;
   margin-right: 4px;
+  transition: height 0.4s ease;
 }
 .nav.scrolled .nav-logo-img {
-  height: 30px;
-  transition: height 0.4s ease;
+  height: 32px;
 }
 
 .nav-menu {
@@ -989,7 +991,7 @@ section {
 <!-- ============= NAV ============= -->
 <nav class="nav" id="nav">
   <a href="#top" class="nav-logo">
-     <img src="YOUR_LOGO_URL" alt="SHS Logo" class="nav-logo-img">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGcAAABQCAIAAACLXPy7AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAAiFUlEQVR42u18WZAdx3XlvblUvVdv673RK5rYFxIkIVKkSFoKa2yJ8nAYMinREuVxzBbhcIxCHw47/DVftj7nYz40oaA5MZ7RSAzJpmVR4lCizEUijUUAQQAESYDYGo1Gb+j3Xr+ttsy8dz6KeGo2Vi6S5Qlk9EdFR2VV5cm7nrz3ITPDRzeu+DREhF/x+DDv7c698fsF3Bzvf9xE7YMM/Gg19NcwVn/w+9X996uMV3vvTVm7qaE3UftNHupfkBV7vwbrA5vs6068KWs3NfT/Jw29tr+/XB2uHRZ8AB3sTvmowqybsvYvxBt0N5yZEd8Ns68tX6unrJag7iwEBPj1xeu/wtwgezJfGkSklBJCXHsKEa1GcDU0awYRdXEnJkQhhFh9LwK+LyNw41CoXx1kRNT9RClldm2M6XQ67Xa71WrV6/UkSaIoarVaSZI454wx3VnMLITwPM/zPK11oVAIgqBQKBSLxUqlUqlUfN/XWl/afOHIGWuklHgNpH8zZS0Tq9WfbYxpNBqLi4sLCwv1er1Wq9Xr9TiOnXOZWBEREWUySERdfNdIa4a+EEIIIaUMgqC3t7dSqQwMDKwbGRkaGurp6ZGXBJmAiUhckrXLMfyQsoYfJhTMxGG1dHTX3Gq1pqenz549e/HixeXl5Uajkd2crbwrEd01ZOqWIb5meWt2AhEzxAHAWouISqlCqdjf3z+ybmTqlqmxsbFKqZxNd851n5m9/Rpm9NeHWlcZlVKIWK1W33nnnZMnT87PzzcaDSJSUgoplVKXzD8A4IcMAvCXJuvdYcldEl5RLpfGx8e3bN6yZdOmnt7eDFznnFKqu6kfUsM+FGrZpwBAFEVnzpw5fPjw7IXZeq0OAL7nIQpAQCGYiemXO5wpIzNl8AEDvMeEv/u/ta+DNUABrrqNETJRZAByLjWGmft7+yYnJ3ft2rV582alFJEDBiHFh7dLH2R+pk3ZvjUajcOHDx87dmxhYcE55ymtPA1SpHEipFBCgLEuU65L8uGIkJGlZnIoHAgBDrvYkEAA0sDE7BAlYwaZAnbMjBIBBKMVDMCCiVAAo2C2CAyshBISJTESRGmSmkQqOT4+fseuO+68Y3e+kCcC55wU734SA6+V2w+M2tX+iYhdU7KysnLw4MEDBw40Gg2tdSb/6AwBpUIhSEVOkGUk54RQghSmJtUoBQtpuZMvKAJFjUQp5YosjHAkjYw1ICa9qXFStjVqJ4CFka6SkkFoCuWzDAgb2goX95BoSqkxL9iEAq1UisBjYhOD0CCE1JYotdaZFHp61t159+6P37673FtyqZUMoAUBd33IFVOIK1rA66C2ek5XxMIw3LdvX4aX53lCiF9GodIIS5I8EL5yhmUae7ZsIBemsh0rQOurOPCU4IbnpxwEaUSoO8rrMS2G2KH00BcgQmcTz08F5iwBoJUUpJYQpPAkp45iELICKjR2OQg80gIi6RSBh4zKJRwQMpfaaS6Ocs6yklE+qAPbNKmMjN76ifvvvfseXypnrZAKJb5fuvg6qK2+yFTyyJEjr7766rlz5/L5PABorTPpu3SbRaklCUzSnEcDzZX+MzM9Sxd0vVVoxmgpLeioEkT9hblbdywM3CJjBiMaAW2bOTM2ez4UIBO/2dO/dNum81qxkEFqGNhK9h0j2L5GZ/LMjExazrIUxeXbNr89WBQhe4JBapGwQleAsH9mbvzCor+4oOrNvDVGinYhbwZ6GhvWn5+YWM6Ve4aHH/zM727ZsAUIHLts47sR+HVRU9fVyswH+b4fhuHzzz//2muvMXOpVFrt+3/py0SeLWhO+lQycfrsxC+OrTs/X4pWFIKWAABUAz4Hy0p0Yv5JcXZ4086xgdESN0ZOvLNj72vGQ6LC6a3bvjv9ttqxbfPOWwlAIEkWBqGA3L+4OPXS3v60aVm1+8f3t5ZfVvFDn3k4tlpap1Xat3Jx4tCx8WMnh9oN36Ueg0AwCKmEzjmYrtbfWGkuVEaMw//57b/51N2/9alP/05OK2OMlDKLH9fAdEW1U9cgCbqxhe/7MzMzP/7xj6enp33fz8KrK26FBAnCDiad9YeObN57ZH2r6QmHmCOAlC0gSBYeyHVW9Cfw6qFX7+pfN7R+sne+OTK/VGZLEi2mncD97NCRR+64PZDYYUBkYCCWHtDgwtK6tBNQDISmRx+cORMPD/UVK9NLKxXfji/MTr68b8upmX607Jgh54RLBQBAjkTOsSX9zvGTh9zcH+3aXY0XXnrhH6cvzP/+Q783ODj0vryiuEY+lIXsUsrDhw9/61vfmp6ezuVy3UDxyu7VtIbTxoajxzbtOXhLpyHQWkaLkKBLBEeSY8ERUezJc+w6Qq/fvMlwWml0VKNupWeMgFz+LdOxQ30TI1NJbFkKAJYECAKdK9fqnnGIyERLBXUqjm7ZcGuSYsm3Ywvzky/v2Xl2ZkC4FF0q0CI5ZiAGRkY0TJDXxxsrQxu3owqUkL2F/My5s3/zN//rxIkTUsobB05cLRDrJtJ79ux5+umn0zTN5XIZlKsCJiHAIloSgkgCoefT+Ozcxr1vjsYtEMYoiJSu+iIuF0ShBCAJHKik1RscS2K/WBgIeikKy41mrp04JEy5Uek5EkblypCoFKyLJVsAIKFQyXIrqlTrmqxgFXnBvFLnXDqyfrJJYSWsb/2n1zafmfOESzBNlddSubCUSyolWwgMEHGMvpv18nON9tiOybaLPKskq7zWnTB86qmnDh48KKXMFn5d+NQVzV52rbV+5ZVXnn/++Sz9vizdQQYUYJnBYg5BS2EHwqjv6Klyo+EjScKqVrXJkZnhvunGigUa8UYmW+nY7GLSu+7NRnV03Wig/STkYHm5mDj0rAZZKxbPLM9u2HSLU6SEZQRi5YTUwL3VdmGlLdFZJ02lcs5YmddDA0U/bo6dPT88M91LDFLHmM5V8uHo5pO2PZ92eoNgk8F189VyYk/KvPJ031AuSVu91mMFloySkpmfffZZIvr4xz+e2bjMOayGb/X1VTkPKeWePXteeOGF1VnIewIRAEYAFsggHLAgJe3o6QvjJ2dyGmKhIdXhpq3fL9A/HD89dfcd/VvW10sljLBz+HQH4PS5E5t339WksBR2itWmEqQBjdQ1wHonumNijBANCBACGJlcESlfb4g4FgINWcjl32jWhvtG8rlccXFx4tiZXBx2BCD7jb51J3Zu/Maxk25gYNc9n1gY6l3y9dYLraE3L+yrz3KlNFDuS5c7yDIRYCWipSxjee6556y1n/jEJ64rbuqKob+U8tSpUz/96U+zgONy2itLYhjBMQpASWxk6qXhyPRsX7jiSdvUaIZHflrK/bfDh77ylf+0ace2eho5m74j0sLdt0mmkebC2Pr1CcW3JGlpqa4EI2GcD84r7IAYm5owzjAKAMGoJHIxDovzi3nnQLCTIiwXX6+em7r93hxi+eLS4PmZHkeJEg0p5jds+vrrb9Dk5n/75T+MkUObNk389nh5dmTUTvduqF+UhrR1jCJFICGkBGttturnnnuu3W5/5jOfsdZekU24MmqZZNbr9UxilVKZIbsC2QIAjISCUHgWnaJyu1OoLqNICNk3+sJI75On39p2zwOTd+2YPn++pPPonJVcyyut9H2f/Rx7Htq4p9YsNkMEBqKwVDjhUpnPF4oFmxoF0pFgFBJsLmz0VGs5BERw2pvJ6dlOeuf4lE7DvosLeRd5IGxq5Pjw8/XlaVBf+4M/aNioHXVK6AUWHIpqDga2bx/CnUm7owWQQkaBREQuI6CstUqpn/zkJ8z82c9+NkmSLn93fW+AiD//+c8vXLjQhewquRhohw5lKiUzKITKSlOvNBQyI+cBlzG+SMndt+7ipWqPQOQUJTGwx8LFjoU2Li2mabBY841DgYwQVopHO62+0fGcr2XqfJKeE5KEBNJRq9RuMVvL4Dz/TE4a0pOjk9Re6Z1flMQGPWQUGl9fvrh+y9aSABM2ZA5jZSLtjAJDACRFCoLQKgiFA2Z9KQXuMhGVSuWHP/zh4cOHfd+/mp6K1VJmjEHE6enp119/PfOY13YlkgEAjACQQiMXwqgYWknoOSCNst0e9HN+QVpgFgqFJEACkQrNoJDZ83Q+Nv5KRwIxgAUIc/pMozEyOYGOlQNlQBMKh5JYxZHuhCAodSSLpaOtRm+5r1Asm7BRWWlphwYUKslJ4ktRrhRSdITSS0gxJhIToST4BRH4JAWCEZQgSYIual0iTylVLBafeOKJWq12tTBLrEnOmXnfvn1xHCulruuAGV2ejHIulZ5FkYtagQklg3ISomTLUuu+Wrx44Xwc5Ih9izqVRkMqLEjWOVboqBiFA0tLCiLHru0Fc4DNNO5ZPxYbx4iJpESQUabXuN4LzZSsRPAQ6r19RxutsYkRkeOcJUzivHOKIgfkh9HDKfTMLMac0zbIcZ4RJUDegnTgTAiKHKAE5bNAdCTcGgTSNK1UKo1G46mnnupyrmug+CVqmYheuHDhzJkzvu9nufp1KCPBAkgQW2BiMMwGmVCmKIXEnmbzYeXLF//RLJwNNHsJK9BNDYjkE5MAzZSPEtFc0ezAgS3qdtKe1PquSjDaqk6krUHbqPBKj633d2rexYsoKSYygLOBOlOvTW2csiZmi0L4DpVDdIgqju8j2H3uXHvvK/k8OLDaSUIda5TCSeEIHCMgo8gYVaQ1njBNU2PMxo0bf/SjH507d04p5Zy7Trx24sSJZrOZ5QBrApbLDZsDUCwRENlpEGFQiLTfY0MWwAI8Z+4B8qLkR//wNH3u3+iBjcC+gdhx4gQlQpbJBbWGiCKJKBl6w2T7YvWrIhj50c/z1rCgVDJJTFH3xnb4/Nxg6gSKjp+bzXtNS8Prhqx1SS4fom9RCgDBIIwddM0v53LPvvrCPLUG7rk/SnyKyeWMUDE6dY0j4EzWPM9zzhWLxSRJvve97/35n/9591jjyj7UWjs7O5tlUTcka4DMKABYMDhul3ujckGETQ2YAgOKYie6y/eCavx/n/5B+Lufq2y9vRBKqTCR1iEWrelZquVdKpiQBUTJhpQnJfKRNz02DokFSOJUeopFyaUsuCE5KfaciuJcqTQ4PNyIE5fPN0cG3dIFn6yUzAjKmPXMD2P+hVd/8VajM/CvHvIdUmzTwCmWgvBKVPFafs05NzU19eyzz371q1/1fb/rK96joVlc1m63q9Wq1vpGMjJkAAZmlAwgrHUu6h+8OD62rBSikIAOhAEhU7MrTL8So/n+92ff+IWXl2BYMCJQEEflxeU8OGayjIlkwaYQd3ohLqApgyux8xQFkOQhQnQs2BAmPX0nllcG+gY8z0sZ4lywvHX9UjlwUgkHDsAKaYwZaLU/b8Rtvzh28vvfJWxJidooZHE1yNbAZ60dGho6efLkkSNHsmOaK9s1ROx0OtdwHJfHa5KFJCkBCRwLqGs9d+uu4wPrQtSKAQFIsBOElE5EzceDXPLSSzNnTnChyKwUQj5Jg2rLA2cFW0RkoQgVECEZiQ4FgGYWBBIYGZgdBk63i4XjyxdvuWUjkAMCRd7K+omZjZsWUKMUAECIKKWHVGm3PpvLbTt95sRPf8Q+EuWR5Y2jVi6XlVJ79+7N7N1V47U4juHGa1aZAYgyWp8cI0ZCzI6NNe77rcXyYGyVACA2iI4FpC65xcS/p/Nvv/hym9lqT1uW9WYubgkgQnRSOwJiNkARQAc4Yo4IHSlpgUBYKVPBiYfTebVMPDI+FifGFwJTV8sHS3ffdXbzphXIMQmLRqGTACScbFUf7ulRR98++fYJyOUsObzho5JMxI4fP36d3EBKmQUcNwIcIwCQkQCAHksGQISm553fudlHSPceXLc0X4TIsQOHPuS41r69f0TUV2aPn9x+5x25WlJZrHqmhchIXiPIez1DsbPvnmAKRIZQSgN2tNnAGDWC5ijOq+OMbRaTk+MpOQnEChsW4uHB5ud+O9DFdSeODmAHE7KIzKJiXb7RuL1n8DuH3tq26/YILKB33YKQLEESQiil5ufnMyJjtdVTa/zumtPv9zskwkW08e1j8YAn//F1/9xZlB1i1o5ygF5iRio9i+fPb7p1e4FNodb0U5IaLFFjeODpvBdK2dNTMZbAWQQgJXvJfvzChfGFVp6M74QtD56p1QaHBgvFwsVaHRm11JZZptwpFN787J1Jr/L2Hu6jDnkOHUtgTNKxsf7awkLcamqlnXUobrQbg4iazWaWg68Wpveg5vv+FUmSGx8JE0k9KzleP6F/O9952UydO1lAx+gUs0ptTuna4kLOU7LTKC9VA5ZERJ5/rr/0Xw+98egf/rvC1Po4ThBBMKRS5DBsv/ASzDUBHAOulHveWjw/sX0HAzCARMEA0tMpsBOiCsX4gY/5JOW+g3luS2QEENaVvFxOiLDVqfT3OrJa6uvaNSJKkiSOY9/3L0fjPYdaPT09pVLp8qDuGn56jX+RLHKsCs5P4tzR0XUnH7i1Uchn9pcAGFhpFUWRtLbcbFQaNQ81o4pKudfihMqF0Q0TMVoMFOcU5SUFPqicFyZFm/jonMT5QF5IwrGxUWOdElIKkZUThYLazggK5nJ9xz++c3ZynSPMjJNltgCpsQiglc4Y/OsWfimlkiRZXl7u7e3teoMug/Se3CAIgvHx8ctJoWvVlDG/+wcAAJ5Dz5FgyjtJImiMDocDfeQYUKYArpBvpHG+0lMA2b9c13ETEFOiRn/+eNjp66vkcwCQAKQACUDiuahvablvuaEoBSaTz8162HB2fGIijiMlRFb+wMA+oZYCA12M9FK+sDQ14EAgiAQgzftVkyQIfj5I4qRbI3Lt4Xleo9Ewxqxbt+5aPjTT26mpqRvXTSIiBodIgMAAwJECQBIYG+mkARWjZCkACEUswBX8+UZjeHzCc6KwtIJgCMAy1Ari3Epz4+QWTwXgFJJC0kzaJ9G70ig2OkaImJHLlXdWWrlKX09vj3HOXqIOkcEjQJdiHCIxoC/QV6iBRARgS/kVsEZr7ef50mHmjawx85633nrrdZgiZt60aVNvb6+19vLQbk2wRgACqOA6IxcXem2TlQPMpwoTAUESCECjO5VGI18zQuQRmFX+XC53vtPsG+r3k5VyrRqwcjJB6dX8vumwMz46Zgw5lAYkoUTQyphKrYpJyB6hcUmx/1izUx4aCAKZay4P1WueIglCOhkJ0OT5FlMv7EtWepfbCoQTBMC22HO0UesZGpR+kFEbV1tXVq2UmZ1Op/PGG28EQXDvvfdeBzVrbV9f3/bt26211y28YWAjSEM88dob6199LTl+TAiDYCOEWOdiZQcwHDh7VjbrViMwuVLfAcCm0psm1+vaYtBe8VgzG8wF8043BU5OjMZhiMxCAIITSDmbeAuLPoMW4KOse7l3Vurrb9kALp1YWNr+89ejV/8pCavSRyIZSV3PsxKt/rnpYOG8UYYla+1dqBRfb9W3bdyY154x9hpr6rpB3/dPnz69tLR0//33b9261Tm3Jq5Qq4O6DKZ77733yJEjcRxfI7ViAMkoUAaOh+ZXyovV6dfbAqm0bQs5IYXJtdqbj56Y/MWbgxgDU8RYHR96cXlpcMOWoWJZv31YtVtOkEzRlcvHGtVK70BQLnXC0BPaWgYBjC5v0nyjlSOEBCI/N6e5TW5oZD2Ebt1ifctbpxdl9E59ceRTnzSqr5VjmbQ3zS6O7ntjuLqMmijhsKdvX17Oxe73t+2gpKO1XH3GfsXIlpnDMNyzZw8APP7441rr7PzlqpxH5nEHBgY++clPPvvss1nWunoT1kS5eca+C3WvUxuxzS8zvvXyXphdlE4oA6Vaq392oS9ts3CaoFMpv9FXeuXtNx/78r9WJg1WasU4ckIIkI1C/oRp9g+PqpzP7bYSSMDArIHzrXZPGGlyArBdCN5yUaT18MSk7tT92kXfLj+sgzPHznWSV2xp0Gnwmiv95+bWNeqSLShMwFvYuP77Z89s2barb6Cv2qkhyGv7OedcPp/fs2fP9PT0nXfe+fnPfz4jPNYo9VqmKAvn7rnnnrNnzx4/fjwIgsx9rHasGXzERNIVmu3edpinsGgxmE/t3AFCQhZl1qkvmj7lSK042d667VunTvWOb9i1dZutzwQr1RI7YBGDXC7kTp07t/n2eyOTMjMTgACJFFhXqjdVa4WQgGRSKb8RtyqDI4PK061mvt4sgMmHjR3Cr584BXxSAgsmdFZr7YRnDTbGJl/O67fma//59/99y6UpcF7g1TQ0W5RS6vz58z/72c+EEH/xF3/R09OTpunqxCCDQlzRMyqlHnzwweHh4TiOr1j9gIhAJNDBykolMQrRCMozFITwNGqPjUyMjfOkogTn79z1A5vuX1h67NHHOhyW0lZ5saoImcEGhUWFtSgZnxw31igQxGwFAFMpdflqnWxoBDmQplQ+0W4MD4+UnfVa9d6O8Z2IBLRk4lPqyVTLRGgDHluBGMtOeeDtnRu/ceDAx+/7dM/kaCNu++hf23MqpdI0fe6555rN5pe+9KVHH30084qXa7G4mm4PDQ098sgjnuetQe2S20aNWA6NqnVawqUKfZQRclt4HhU847ETvlWpw/DOLf9QxP/++qGHv/jY4PBgmztBo1mutTUCGYqD3Gwc5/LBwGCfNalCQQCEgMx5Y1SjrZgZ2IJsCrEQhVOT6xlS2WxSJ63mVKSEZ9FzJI3WTudi8FNoGlcd7Tu1a8N/ObgnP7nhdz/3e7PpCiJ6RiDh1TKB7IzqmWeeOXv27NatW7/+9a9nNbNZCfH1z0MzFtdaOzEx8fjjj//t3/5tGIbdrL5bl24AQvDDrVtnVxpiab7sIlQkXOwYlZJpoVwbXHdhZN0Pa4v/59SxR//oP9yyfcdca3EdJaphG6Vy3cMm+dXJsdfrF4s9lVIhWGnWSUhJoBg1kEuaHRtxub/DarFYOBzIZtsMrVtXiyM9NHx+19bwxImxTiTYOSaJQATWz9X7es6vnzqg9f84+oaa2vSVLz7WSJrSplpIKx0jX14BlKXeUspnnnnm6NGjg4OD3/jGN6amppxzVwu/rlq/lg0p5dtvv/13f/d3zrn3lDQAG5Qx8KCLh5sX11Wr/rkLernpJyImF5e82Zw8QnZfI6Shod/55AMDPcNLnShSdhjc+uVmj+nMnH2HWs4ODPzvQwduuftj99/zQK3TUFYi+5EPWqbDnVZ/JwwX55PFGpZK/1RbPFprfuUr/7FjEwnxCJq+xcXC9Fx+thaEHDnbDrjWo08J/sXF5kXO77j73p2374zjOEkSrZTSOmNT1lSXE5HneUmSPPPMM0eOHCmXy3/913/92GOPXW7ObqguN2OBs4ceOnTo7//+7zPmZJVbkMQKpbHcLOWkiq1rRcmKXbxYbbgQCn6+3NPfOzo2PN7qLMQEVuYAQJIJ0JGWzU5cTtGiawpbKpf8lGJKpVOCvDCnEmnLNtVCLhpT7MQFqdqKZSGfswKcsEgJtz0f8wDYNNRM681oqVPriDRfKfeVRyb6xlHLalSVQnaT5W57AzN7nhdFkVLK87xWq/X000+fPHmyUql885vf/NKXvpSZs26p//urlXzXVxIppQ4fPvy9731PSlkoFKIoQmBSOlEyZ0zOWMngQJL2rfJACE8QspPAzkIaJ6gSKxSw9q2QKFrSEnLJCA2YSg41JjbJCwlolQVNXiplLFgDCOeU1AGhIwo1J0iCyEjBaHOp8y0J4VnULJQC7QvwBTt0TZe2yAmGAoK7tMddnoeZrbWe5wFAEARvvvnmj3/844WFheHh4SeffPKhhx6y1q6Ozj5ghWkmdJ7nHT169Dvf+U6SJMPDw0mSMJNCAOuASEplUTkQ1lNANm+ddpaBE4VOCemYQQgWeSeAMUZw0mgmRDRSxiiAUTM6YRSRdpIBs+pvAY5EKp0k1IkQVpAEQHaITnCWTyoW2hCDNTkl0TlnE6EES2CUAPJyR5eBkrnLV199dd++fZ1O52Mf+9gTTzyxe/fuJEkyQK/TbXndauYMuGx/lpaWvvnNb549e3bjpk2eVHHYdhJZMgELFpIFEwkAwYzAhMII4RAVoQBmdCwAAaVhRjASGJGFAAZl2GdhBTIQAjESMApGADLSAnnIGlEgWMWGQRIIEuSQEUAxAjELYhSMwjqnWShgAmaUq5eQXSullFInT5588cUXz549CwB/8id/8ld/9Vd9fX3dGqzr8rI3WgPe7clg5meeeeapp57q6e2dvGWKgcjYJIne7RwxTqBwCAwIgMgCGS2yAOeEM4qBwbMsSRJKEgAIyCQdKwYCSQgsHOG7pxEIACQAJLAQAAhGoLOgCaVgQiBkRgQCJsFMgKAQhSMGAQIR4V1FycDKEsylpaVXXnnl0KFDzrkdO3b85V/+5SOPPJKJRffs7rpE2fvr0siOpnO53Nzc3BNPPLF///6xsbGtW7YYa5MkySwoM1zKMn79vafQrYNCALokX1lpULVaPXjw4P79+5Mk6e3t/drXvvanf/qn5XI5TdPrtmB+KNSyrTPGZIfzBw4cePLJJ0+ePDkxMbFp0yatdUYcX8P7/Iq6Krt9cFmBgbU2Qyqr8ZmZmTl48OCxY8fiOM7n81/84hf/7M/+7LbbbsvW4nkevs99xhv/6YfsoVk4IoTIXAQA7N+//9vf/vaBAwdKpdKOHTtGR0ellHEcZ6V0qxvzbvCk9Wqv7pqOy4vbs3syw5TL5bI9q1arZ86cOXLkyKlTpwCgv7//0Ucf/eM//uPdu3cDQJqm3e7BG+mH/ii7z5g529Xjx49/97vfffnll+v1+tjY2NTU1NDQULFYTNM0a5nrVg+u7jjsurYsEF9DE6zO8C7/zm78lU0MgiB7UbPZnJ6ePnHixPHjx40xAHDXXXd94Qtf+MIXvrBx40YASJJESpmd3f0z9OxlQBhjmDlrdYmi6MUXX/zBD35w+PDhWq02MDAwMTExMTExMDCQpXVZ5SYRZcRnN0C/Ajvw3n7K7J5uV20GvVLKGOOcC8Nwbm5ubm7u9OnTmWcEgC1btjz44IMPPfTQAw88kH1e9vaui/zATcsfquevqzsZCtkysv/UarX9+/e/9NJL+/fvn5mZyWRhfHy8r69vcHCwr68PEX3fz5iGzM112+NX01bdGpTVNe1Zf3O73V5cXJybm1tYWJifn88mlkql3bt333///Z/+9Kd3796dnTAxc5qmWbLZ/eA1b/koe/be7xOzfIWIuhWt1tqsxmTv3r2nTp168803wzDMtLtQKAwMDJTL5WKxqJTSWmutPc/LZMFeGsycJEmn02k2m0tLS1EUhWHY6XS6Z7jDw8Pbt2/ftWvXfffdt3Pnzo0bN15qQeXM0q3WxI/ER33EqGXSR0Rd8Vnz0dVqdXZ29q233pqZmZmfnz916tSFCxcyFOI4DsMwiqKugVvNfJVKpVKpFARBEARjY2Pbtm0bHR2dnJzcuXNnf39/f39/91OdcxkF3VXkj9xrf8SoXTGv6Pa0Z+eMl5POcRx3Op1Wq9VqtVZWVjIDv9qQBUGQnXCXy+XsGPjyh2Q6mMG0itD6lYxfFWpdk7SG/FtDQ91I+nI1R7Tmxxy6kc2vIU78jfiFxDVkwdWqI/CfMef4DUTtX9y4+etON1G7idpN1G6idnPcRO0majdR+80e/w/5aE9+FbWWaAAAAABJRU5ErkJggg==" alt="SHS Logo" class="nav-logo-img">
     <span class="mark">Sim Hup Seng</span>
     <span class="wordmark">Est. 1995 · Muar</span>
   </a>
@@ -1000,7 +1002,7 @@ section {
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="https://wa.me/60126208101?text=Hi%20Sim%20Hup%20Seng%20Furniture,%20I%20visited%20your%20website%20and%20I%20am%20interested%20in%20your%20wholesale%20dining%20collections.%20Could%20you%20please%20share%20your%20latest%20E-catalog%20and%20container%20pricing?" class="nav-cta" target="_blank" rel="noopener">
-    Request Catalog <span>→</span>
+    Request Catalog <span>&rarr;</span>
   </a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -1019,7 +1021,7 @@ section {
   <div class="hero-text">
     <div class="hero-est">
       <span class="line"></span>
-      <span class="text">Est. 1995 · Muar, Malaysia</span>
+      <span class="text">Est. 1995 &middot; Muar, Malaysia</span>
     </div>
 
     <h1 class="h-display h1 hero-title">
@@ -1029,12 +1031,12 @@ section {
     </h1>
 
     <p class="lead hero-desc">
-      Three decades of crafting solid wood dining tables and chairs — built in Muar, Malaysia's furniture capital, trusted across the US, the Middle East, and beyond.
+      Three decades of crafting solid wood dining tables and chairs &mdash; built in Muar, Malaysia's furniture capital, trusted across the US, the Middle East, and beyond.
     </p>
 
     <div class="hero-actions">
       <a href="https://wa.me/60126208101?text=Hi%20Sim%20Hup%20Seng%20Furniture,%20I%20visited%20your%20website%20and%20I%20am%20interested%20in%20your%20wholesale%20dining%20collections.%20Could%20you%20please%20share%20your%20latest%20E-catalog%20and%20container%20pricing?" class="btn btn-primary" target="_blank" rel="noopener">
-        Request a Quote <span class="arrow">→</span>
+        Request a Quote <span class="arrow">&rarr;</span>
       </a>
       <a href="#collection" class="btn btn-ghost">View Collection</a>
     </div>
@@ -1044,13 +1046,13 @@ section {
     <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/AUzCIvE1HVdJU5eg/a3-4c_20260324155730_207_2-Nx3o30dIod4JupOo.jpg" alt="Sim Hup Seng dining furniture set" loading="eager">
     <div class="hero-tag">
       <span class="label">Featured</span>
-      <span class="value">SHS 10030 · Contemporary 8-Seater</span>
+      <span class="value">SHS 10030 &middot; Contemporary 8-Seater</span>
     </div>
   </div>
 
   <div class="scroll-cue">
     <span class="v-line"></span>
-    <span>Scroll · 01 Heritage</span>
+    <span>Scroll &middot; 01 Heritage</span>
   </div>
 </section>
 
@@ -1070,7 +1072,7 @@ section {
     <div class="stat reveal">
       <div class="stat-num"><span data-count="6">0</span><span class="plus">+</span></div>
       <div class="stat-label">Markets Served</div>
-      <div class="stat-detail">US · Middle East · Africa · India · Philippines · Chile</div>
+      <div class="stat-detail">US &middot; Middle East &middot; Africa &middot; India &middot; Philippines &middot; Chile</div>
     </div>
     <div class="stat reveal">
       <div class="stat-num"><span data-count="100">0</span><span class="plus">+</span></div>
@@ -1099,7 +1101,7 @@ section {
 
     <div class="about-content reveal">
       <p class="lead">
-        For over three decades, we've dedicated ourselves to a single craft — premium dining tables and chairs that anchor the rooms where families gather.
+        For over three decades, we've dedicated ourselves to a single craft &mdash; premium dining tables and chairs that anchor the rooms where families gather.
       </p>
 
       <div class="strengths">
@@ -1111,7 +1113,7 @@ section {
         <div class="strength">
           <span class="strength-num">02 / OEM &amp; ODM</span>
           <h3 class="strength-title">Tailored Customization</h3>
-          <p class="strength-desc">Send us your designs or choose from our catalog — we adapt dimensions, materials, and packaging.</p>
+          <p class="strength-desc">Send us your designs or choose from our catalog &mdash; we adapt dimensions, materials, and packaging.</p>
         </div>
         <div class="strength">
           <span class="strength-num">03 / Quality</span>
@@ -1143,7 +1145,7 @@ section {
     <div class="step reveal">
       <div class="step-num">01</div>
       <h3 class="step-title">Design &amp; Sampling</h3>
-      <p class="step-desc">We turn your concepts into reality — OEM customization or catalog selection with rapid prototyping and precise sampling for final approval.</p>
+      <p class="step-desc">We turn your concepts into reality &mdash; OEM customization or catalog selection with rapid prototyping and precise sampling for final approval.</p>
     </div>
     <div class="step reveal">
       <div class="step-num">02</div>
@@ -1153,7 +1155,7 @@ section {
     <div class="step reveal">
       <div class="step-num">03</div>
       <h3 class="step-title">Strict QC</h3>
-      <p class="step-desc">Comprehensive inspections at every stage — structural durability, flawless finishing, and secure packaging to ISTA standards.</p>
+      <p class="step-desc">Comprehensive inspections at every stage &mdash; structural durability, flawless finishing, and secure packaging to ISTA standards.</p>
     </div>
     <div class="step reveal">
       <div class="step-num">04</div>
@@ -1183,7 +1185,7 @@ section {
       <div class="product-info">
         <div class="product-model">Model SHS 10030</div>
         <h3 class="product-name">8-Seater Contemporary Set</h3>
-        <p class="product-meta">China Ash Veneer · L2200 × W1000 × H750 mm · Cross-stitch chair backs</p>
+        <p class="product-meta">China Ash Veneer &middot; L2200 &times; W1000 &times; H750 mm &middot; Cross-stitch chair backs</p>
       </div>
     </div>
 
@@ -1194,7 +1196,7 @@ section {
       <div class="product-info">
         <div class="product-model">Model SHS 10057</div>
         <h3 class="product-name">8-Seater with Storage</h3>
-        <p class="product-meta">Solid Rubberwood · Built-in drawer · Antique &amp; Monein Oak</p>
+        <p class="product-meta">Solid Rubberwood &middot; Built-in drawer &middot; Antique &amp; Monein Oak</p>
       </div>
     </div>
 
@@ -1205,7 +1207,7 @@ section {
       <div class="product-info">
         <div class="product-model">Model SHS 10032</div>
         <h3 class="product-name">6-Seater Two-Tone Coastal</h3>
-        <p class="product-meta">1.6m two-tone top · White frame · Slat-back chairs</p>
+        <p class="product-meta">1.6m two-tone top &middot; White frame &middot; Slat-back chairs</p>
       </div>
     </div>
 
@@ -1216,7 +1218,7 @@ section {
       <div class="product-info">
         <div class="product-model">Model SHS 10035</div>
         <h3 class="product-name">Counter Height Storage</h3>
-        <p class="product-meta">Mindy Veneer · Two storage shelves · PU leather chairs</p>
+        <p class="product-meta">Mindy Veneer &middot; Two storage shelves &middot; PU leather chairs</p>
       </div>
     </div>
 
@@ -1227,7 +1229,7 @@ section {
       <div class="product-info">
         <div class="product-model">Model SHS 10036</div>
         <h3 class="product-name">5-Piece Farmhouse Set</h3>
-        <p class="product-meta">Atlantis Oak · Counter height · Cross-back chairs &amp; bench</p>
+        <p class="product-meta">Atlantis Oak &middot; Counter height &middot; Cross-back chairs &amp; bench</p>
       </div>
     </div>
 
@@ -1238,7 +1240,7 @@ section {
       <div class="product-info">
         <div class="product-model">Model SHS 10037</div>
         <h3 class="product-name">8-Seater Modern Luxury</h3>
-        <p class="product-meta">V-shaped pedestal base · White PU leather · Channel-tufted backs</p>
+        <p class="product-meta">V-shaped pedestal base &middot; White PU leather &middot; Channel-tufted backs</p>
       </div>
     </div>
 
@@ -1249,15 +1251,15 @@ section {
       <div class="product-info">
         <div class="product-model">Model SHS 10038</div>
         <h3 class="product-name">6-Seater Classic Trestle</h3>
-        <p class="product-meta">Curved trestle base · Grey tufted fabric · Premium retail</p>
+        <p class="product-meta">Curved trestle base &middot; Grey tufted fabric &middot; Premium retail</p>
       </div>
     </div>
   </div>
 
   <div class="collection-cta reveal">
-    <h3>Hundreds more in our full catalog — built to your specification.</h3>
+    <h3>Hundreds more in our full catalog &mdash; built to your specification.</h3>
     <a href="https://wa.me/60126208101?text=Hi%20Sim%20Hup%20Seng%20Furniture,%20I%20visited%20your%20website%20and%20I%20am%20interested%20in%20your%20wholesale%20dining%20collections.%20Could%20you%20please%20share%20your%20latest%20E-catalog%20and%20container%20pricing?" class="btn btn-primary" target="_blank" rel="noopener">
-      Request E-Catalog <span class="arrow">→</span>
+      Request E-Catalog <span class="arrow">&rarr;</span>
     </a>
   </div>
 </section>
@@ -1320,7 +1322,7 @@ section {
         <a href="https://wa.me/60126208101?text=Hi%20Sim%20Hup%20Seng%20Furniture,%20I%20visited%20your%20website%20and%20I%20am%20interested%20in%20your%20wholesale%20dining%20collections.%20Could%20you%20please%20share%20your%20latest%20E-catalog%20and%20container%20pricing?" class="btn-whatsapp" target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           WhatsApp Us
-          <span class="arrow">→</span>
+          <span class="arrow">&rarr;</span>
         </a>
       </div>
     </div>
@@ -1340,7 +1342,7 @@ section {
       </div>
       <div class="contact-row">
         <div class="label">Markets</div>
-        <div class="value">US · Middle East · Africa · Asia</div>
+        <div class="value">US &middot; Middle East &middot; Africa &middot; Asia</div>
       </div>
     </div>
   </div>
@@ -1351,7 +1353,7 @@ section {
   <div class="footer-grid">
     <div>
       <div class="footer-logo">Sim Hup <em>Seng</em></div>
-      <p class="footer-tag">A 30-year heritage of premium dining furniture, manufactured in Muar, Malaysia — for partners worldwide.</p>
+      <p class="footer-tag">A 30-year heritage of premium dining furniture, manufactured in Muar, Malaysia &mdash; for partners worldwide.</p>
     </div>
     <div>
       <h4>Explore</h4>
@@ -1372,7 +1374,7 @@ section {
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Sim Hup Seng Furniture Sdn Bhd. All rights reserved.</span>
+    <span>&copy; 2026 Sim Hup Seng Furniture Sdn Bhd. All rights reserved.</span>
     <span>Crafted in Muar, Malaysia</span>
   </div>
 </footer>
