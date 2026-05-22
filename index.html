@@ -211,6 +211,15 @@ img { display: block; max-width: 100%; height: auto; }
   text-transform: uppercase;
   color: var(--mist);
 }
+   .nav-logo-img {
+  height: 36px;
+  width: auto;
+  margin-right: 4px;
+}
+.nav.scrolled .nav-logo-img {
+  height: 30px;
+  transition: height 0.4s ease;
+}
 
 .nav-menu {
   display: flex;
@@ -980,6 +989,7 @@ section {
 <!-- ============= NAV ============= -->
 <nav class="nav" id="nav">
   <a href="#top" class="nav-logo">
+     <img src="YOUR_LOGO_URL" alt="SHS Logo" class="nav-logo-img">
     <span class="mark">Sim Hup Seng</span>
     <span class="wordmark">Est. 1995 · Muar</span>
   </a>
