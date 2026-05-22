@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sim Hup Seng Furniture — 30 years of crafting premium dining furniture in Muar, Malaysia. OEM/ODM partner for US and Middle East markets.">
+<title>Sim Hup Seng Furniture — Dining Furniture Manufacturer, Muar Malaysia</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  --ivory:    #f6f0e3;
+  --cream:    #ede4d0;
+  --bone:     #e3d6bb;
+  --sand:     #c9b58e;
+  --brass:    #a17a3a;
+  --amber:    #b8893f;
+  --walnut:   #2c1f15;
+  --espresso: #1a120c;
+  --ink:      #0f0a06;
+  --mist:     #8b7a5e;
+  --line:     rgba(44, 31, 21, 0.14);
+  --line-soft:rgba(44, 31, 21, 0.08);
+
+  --serif: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --max:   1440px;
+  --gutter: clamp(20px, 4vw, 60px);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--ivory);
+  color: var(--walnut);
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Paper-grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.17  0 0 0 0 0.12  0 0 0 0 0.08  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+::selection { background: var(--walnut); color: var(--ivory); }
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+.eyebrow .num {
+  color: var(--brass);
+  margin-right: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.h-display {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  color: var(--espresso);
+}
+.h-display em {
+  font-style: italic;
+  font-weight: 300;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  color: var(--brass);
+}
+
+.h1 { font-size: clamp(48px, 8vw, 128px); }
+.h2 { font-size: clamp(36px, 5.5vw, 84px); }
+.h3 { font-size: clamp(28px, 3.5vw, 52px); }
+
+.lead {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(18px, 1.6vw, 24px);
+  line-height: 1.45;
+  font-variation-settings: "opsz" 24;
+  color: var(--walnut);
+  max-width: 56ch;
+}
+
+.body { font-size: 16px; line-height: 1.7; color: var(--walnut); max-width: 60ch; }
+.body p + p { margin-top: 1em; }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 32px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary {
+  background: var(--walnut);
+  color: var(--ivory);
+}
+.btn-primary:hover {
+  background: var(--espresso);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(26, 18, 12, 0.25);
+}
+.btn-primary .arrow { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.btn-primary:hover .arrow { transform: translateX(6px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--walnut);
+  border: 1px solid var(--walnut);
+}
+.btn-ghost:hover {
+  background: var(--walnut);
+  color: var(--ivory);
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding-bottom: 6px;
+  border-bottom: 1px solid currentColor;
+  transition: all 0.3s;
+}
+.link-arrow:hover { gap: 18px; color: var(--brass); }
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 22px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+  background: transparent;
+}
+.nav.scrolled {
+  background: rgba(246, 240, 227, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 14px var(--gutter);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  color: var(--espresso);
+}
+.nav-logo .mark {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 24, "SOFT" 30;
+}
+.nav-logo .wordmark {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-menu a {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--walnut);
+  padding: 4px 0;
+  position: relative;
+  transition: color 0.3s;
+}
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: var(--brass);
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-menu a:hover { color: var(--brass); }
+.nav-menu a:hover::after { width: 100%; }
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  background: var(--walnut);
+  color: var(--ivory);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--brass); transform: translateY(-1px); }
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+.mobile-toggle span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--walnut);
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  padding: 140px var(--gutter) 80px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+  position: relative;
+}
+
+.hero-text { position: relative; z-index: 2; }
+.hero-est {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+  color: var(--mist);
+}
+.hero-est .line {
+  width: 48px;
+  height: 1px;
+  background: var(--brass);
+}
+.hero-est .text {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.hero-title { margin-bottom: 40px; }
+.hero-title .line-1 { display: block; opacity: 0; animation: fadeUp 1.2s 0.2s forwards cubic-bezier(0.22, 1, 0.36, 1); }
+.hero-title .line-2 { display: block; opacity: 0; animation: fadeUp 1.2s 0.4s forwards cubic-bezier(0.22, 1, 0.36, 1); }
+.hero-title .line-3 { display: block; opacity: 0; animation: fadeUp 1.2s 0.6s forwards cubic-bezier(0.22, 1, 0.36, 1); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-desc {
+  max-width: 44ch;
+  margin-bottom: 56px;
+  opacity: 0;
+  animation: fadeUp 1.2s 0.8s forwards cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 1.2s 1s forwards cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-visual {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeIn 1.6s 0.3s forwards ease;
+}
+@keyframes fadeIn { to { opacity: 1; } }
+
+.hero-visual img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+  animation: heroZoom 12s ease-out forwards;
+}
+@keyframes heroZoom { to { transform: scale(1); } }
+
+.hero-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 50%, rgba(26, 18, 12, 0.15));
+  pointer-events: none;
+}
+
+.hero-tag {
+  position: absolute;
+  bottom: -1px; left: -1px;
+  background: var(--ivory);
+  padding: 18px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 3;
+}
+.hero-tag .label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+.hero-tag .value {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--espresso);
+  font-variation-settings: "opsz" 24, "SOFT" 50;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 36px; left: var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--mist);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+.scroll-cue .v-line {
+  width: 1px;
+  height: 36px;
+  background: var(--mist);
+  animation: scrollBar 2s ease-in-out infinite;
+  transform-origin: top;
+}
+@keyframes scrollBar {
+  0%, 100% { transform: scaleY(0.3); opacity: 0.4; }
+  50%      { transform: scaleY(1);   opacity: 1; }
+}
+
+/* ============================================================
+   SECTION FRAME
+   ============================================================ */
+section {
+  padding: clamp(80px, 12vw, 160px) var(--gutter);
+  position: relative;
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: clamp(50px, 7vw, 90px);
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+.section-head-meta { flex-shrink: 0; }
+.section-head-title { max-width: 18ch; }
+
+/* ============================================================
+   HERITAGE STATS
+   ============================================================ */
+.heritage {
+  background: var(--cream);
+  padding: clamp(70px, 10vw, 130px) var(--gutter);
+}
+.heritage-grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.stat {
+  padding: 30px 28px;
+  border-right: 1px solid var(--line);
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(56px, 7vw, 96px);
+  line-height: 1;
+  color: var(--espresso);
+  letter-spacing: -0.04em;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  margin-bottom: 16px;
+  font-variant-numeric: tabular-nums;
+}
+.stat-num .plus { color: var(--brass); font-style: italic; }
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--walnut);
+  margin-bottom: 8px;
+}
+.stat-detail { font-size: 14px; color: var(--mist); line-height: 1.5; }
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(50px, 7vw, 100px);
+  align-items: center;
+}
+.about-img {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+.about-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.about-img:hover img { transform: scale(1.04); }
+
+.about-img-badge {
+  position: absolute;
+  bottom: 30px; left: 30px;
+  background: var(--ivory);
+  padding: 16px 22px;
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--walnut);
+  font-style: italic;
+}
+
+.about-content h2 { margin-bottom: 36px; }
+.about-content .lead { margin-bottom: 48px; }
+
+.strengths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px 28px;
+}
+.strength {
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.strength-num {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--brass);
+  font-style: italic;
+  font-variation-settings: "opsz" 24, "WONK" 1;
+  margin-bottom: 12px;
+  display: block;
+}
+.strength-title {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--espresso);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 36;
+}
+.strength-desc { font-size: 14px; color: var(--walnut); line-height: 1.6; }
+
+/* ============================================================
+   PROCESS
+   ============================================================ */
+.process {
+  background: var(--walnut);
+  color: var(--ivory);
+}
+.process .eyebrow { color: var(--sand); }
+.process .eyebrow .num { color: var(--amber); }
+.process .section-head { border-bottom-color: rgba(255,255,255,0.14); }
+.process h2 { color: var(--ivory); }
+.process h2 em { color: var(--amber); }
+
+.process-grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.step {
+  padding: 36px 30px 0;
+  border-right: 1px solid rgba(255,255,255,0.14);
+  position: relative;
+  transition: background 0.4s ease;
+}
+.step:last-child { border-right: none; }
+.step:hover { background: rgba(255,255,255,0.03); }
+
+.step-num {
+  font-family: var(--serif);
+  font-size: 64px;
+  font-weight: 200;
+  line-height: 1;
+  color: var(--amber);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  margin-bottom: 60px;
+  font-variant-numeric: tabular-nums;
+}
+.step-title {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--ivory);
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 48;
+}
+.step-desc {
+  font-size: 14px;
+  color: rgba(246, 240, 227, 0.7);
+  line-height: 1.65;
+  padding-bottom: 36px;
+}
+
+/* ============================================================
+   COLLECTION
+   ============================================================ */
+.collection-grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px 28px;
+}
+
+.product { position: relative; cursor: pointer; }
+.product-img {
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+  aspect-ratio: 4 / 3;
+}
+.product-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.product:hover .product-img img { transform: scale(1.06); }
+
+.product-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 18, 12, 0);
+  transition: background 0.4s ease;
+}
+.product:hover .product-img::after { background: rgba(26, 18, 12, 0.18); }
+
+.product-tag {
+  position: absolute;
+  top: 16px; left: 16px;
+  background: var(--ivory);
+  padding: 6px 14px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--walnut);
+  z-index: 2;
+}
+
+.product-info { padding: 22px 4px 0; }
+.product-model {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 10px;
+}
+.product-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--espresso);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 36;
+}
+.product-meta { font-size: 13px; color: var(--mist); }
+
+.col-7  { grid-column: span 7; }
+.col-5  { grid-column: span 5; }
+.col-4  { grid-column: span 4; }
+.col-6  { grid-column: span 6; }
+.col-8  { grid-column: span 8; }
+.col-12 { grid-column: span 12; }
+
+.product.feature .product-img { aspect-ratio: 5 / 4; }
+.product.tall .product-img { aspect-ratio: 4 / 5; }
+
+.collection-cta {
+  max-width: var(--max);
+  margin: 80px auto 0;
+  padding: 60px;
+  background: var(--cream);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.collection-cta h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(24px, 3vw, 36px);
+  color: var(--espresso);
+  max-width: 22ch;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 48;
+}
+
+/* ============================================================
+   FACTORY GALLERY
+   ============================================================ */
+.factory {
+  background: var(--cream);
+  padding: clamp(80px, 12vw, 160px) 0;
+  overflow: hidden;
+}
+.factory .section-head {
+  max-width: var(--max);
+  margin: 0 auto clamp(50px, 7vw, 90px);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.gallery {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 0 var(--gutter) 40px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--mist) transparent;
+  scroll-snap-type: x mandatory;
+}
+.gallery::-webkit-scrollbar { height: 4px; }
+.gallery::-webkit-scrollbar-track { background: transparent; }
+.gallery::-webkit-scrollbar-thumb { background: var(--mist); border-radius: 2px; }
+
+.gallery-item {
+  flex-shrink: 0;
+  width: clamp(280px, 32vw, 460px);
+  scroll-snap-align: start;
+}
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+.gallery-cap {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--mist);
+  letter-spacing: 0.04em;
+}
+.gallery-cap .num {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--brass);
+  margin-right: 10px;
+  font-variation-settings: "WONK" 1;
+}
+
+/* ============================================================
+   CONTACT / CTA
+   ============================================================ */
+.contact {
+  background: var(--espresso);
+  color: var(--ivory);
+  padding: clamp(90px, 14vw, 180px) var(--gutter);
+  position: relative;
+  overflow: hidden;
+}
+.contact::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, var(--amber) 0%, transparent 70%);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.contact-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(50px, 7vw, 100px);
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.contact .eyebrow { color: var(--sand); }
+.contact .eyebrow .num { color: var(--amber); }
+
+.contact h2 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(40px, 6vw, 88px);
+  line-height: 1;
+  color: var(--ivory);
+  margin: 32px 0 40px;
+  letter-spacing: -0.025em;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+}
+.contact h2 em {
+  font-style: italic;
+  color: var(--amber);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+
+.contact .lead {
+  color: rgba(246, 240, 227, 0.78);
+  margin-bottom: 56px;
+}
+
+.contact-actions { display: flex; gap: 20px; flex-wrap: wrap; }
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 36px;
+  background: var(--amber);
+  color: var(--espresso);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-whatsapp:hover {
+  background: var(--ivory);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(184, 137, 63, 0.3);
+}
+.btn-whatsapp .arrow { transition: transform 0.4s; }
+.btn-whatsapp:hover .arrow { transform: translateX(6px); }
+
+.contact-card {
+  background: rgba(246, 240, 227, 0.04);
+  border: 1px solid rgba(246, 240, 227, 0.1);
+  padding: 44px;
+  backdrop-filter: blur(10px);
+}
+.contact-row {
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(246, 240, 227, 0.1);
+}
+.contact-row:last-child { border-bottom: none; }
+.contact-row .label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 10px;
+}
+.contact-row .value {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ivory);
+  font-variation-settings: "opsz" 24, "SOFT" 50;
+}
+.contact-row .value a:hover { color: var(--amber); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--ink);
+  color: rgba(246, 240, 227, 0.6);
+  padding: 80px var(--gutter) 40px;
+}
+.footer-grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(246, 240, 227, 0.08);
+}
+.footer-logo {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--ivory);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  font-variation-settings: "opsz" 48, "SOFT" 50;
+}
+.footer-logo em {
+  font-style: italic;
+  color: var(--amber);
+  font-variation-settings: "WONK" 1;
+}
+.footer-tag {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  max-width: 36ch;
+}
+
+.footer h4 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 22px;
+}
+.footer ul { list-style: none; }
+.footer ul li { padding: 6px 0; font-size: 14px; }
+.footer a { transition: color 0.3s; }
+.footer a:hover { color: var(--amber); }
+
+.footer-bottom {
+  max-width: var(--max);
+  margin: 40px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; padding-top: 120px; min-height: auto; }
+  .scroll-cue { display: none; }
+  .heritage-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(2) { border-right: none; }
+  .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .about-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .step:nth-child(2) { border-right: none; }
+  .step:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .col-7, .col-5, .col-4, .col-6, .col-8 { grid-column: span 6; }
+  .contact-inner { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (max-width: 720px) {
+  .nav-menu { display: none; }
+  .nav-cta { display: none; }
+  .mobile-toggle { display: block; }
+
+  .heritage-grid { grid-template-columns: 1fr; }
+  .stat { border-right: none; border-bottom: 1px solid var(--line); }
+  .stat:last-child { border-bottom: none; }
+
+  .strengths { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr; }
+  .step { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .step:last-child { border-bottom: none; }
+
+  .col-7, .col-5, .col-4, .col-6, .col-8 { grid-column: span 12; }
+
+  .collection-cta { padding: 36px; flex-direction: column; align-items: flex-start; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* Mobile menu drawer */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  background: var(--ivory);
+  z-index: 99;
+  display: none;
+  flex-direction: column;
+  padding: 100px var(--gutter) var(--gutter);
+}
+.mobile-drawer.open { display: flex; }
+.mobile-drawer a {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--espresso);
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  font-variation-settings: "opsz" 48, "SOFT" 50;
+}
+</style>
+</head>
+<body>
+
+<!-- ============= NAV ============= -->
+<nav class="nav" id="nav">
+  <a href="#top" class="nav-logo">
+    <span class="mark">Sim Hup Seng</span>
+    <span class="wordmark">Est. 1995 · Muar</span>
+  </a>
+  <ul class="nav-menu">
+    <li><a href="#heritage">Heritage</a></li>
+    <li><a href="#about">Craft</a></li>
+    <li><a href="#collection">Collection</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/60126208101?text=Hi%20Sim%20Hup%20Seng%20Furniture,%20I%20visited%20your%20website%20and%20I%20am%20interested%20in%20your%20wholesale%20dining%20collections.%20Could%20you%20please%20share%20your%20latest%20E-catalog%20and%20container%20pricing?" class="nav-cta" target="_blank" rel="noopener">
+    Request Catalog <span>→</span>
+  </a>
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="#heritage">Heritage</a>
+  <a href="#about">Craft</a>
+  <a href="#collection">Collection</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ============= HERO ============= -->
+<section class="hero" id="top">
+  <div class="hero-text">
+    <div class="hero-est">
+      <span class="line"></span>
+      <span class="text">Est. 1995 · Muar, Malaysia</span>
+    </div>
+
+    <h1 class="h-display h1 hero-title">
+      <span class="line-1">Where every</span>
+      <span class="line-2">meal becomes</span>
+      <span class="line-3">a <em>memory.</em></span>
+    </h1>
+
+    <p class="lead hero-desc">
+      Three decades of crafting solid wood dining tables and chairs — built in Muar, Malaysia's furniture capital, trusted across the US, the Middle East, and beyond.
+    </p>
+
+    <div class="hero-actions">
+      <a href="https://wa.me/60126208101?text=Hi%20Sim%20Hup%20Seng%20Furniture,%20I%20visited%20your%20website%20and%20I%20am%20interested%20in%20your%20wholesale%20dining%20collections.%20Could%20you%20please%20share%20your%20latest%20E-catalog%20and%20container%20pricing?" class="btn btn-primary" target="_blank" rel="noopener">
+        Request a Quote <span class="arrow">→</span>
+      </a>
+      <a href="#collection" class="btn btn-ghost">View Collection</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,fit=crop/AUzCIvE1HVdJU5eg/a3-4c_20260324155730_207_2-Nx3o30dIod4JupOo.jpg" alt="Sim Hup Seng dining furniture set" loading="eager">
+    <div class="hero-tag">
+      <span class="label">Featured</span>
+      <span class="value">SHS 10030 · Contemporary 8-Seater</span>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <span class="v-line"></span>
+    <span>Scroll · 01 Heritage</span>
+  </div>
+</section>
+
+<!-- ============= HERITAGE ============= -->
+<section class="heritage" id="heritage">
+  <div class="heritage-grid">
+    <div class="stat reveal">
+      <div class="stat-num"><span data-count="30">0</span><span class="plus">+</span></div>
+      <div class="stat-label">Years of Heritage</div>
+      <div class="stat-detail">Crafting solid wood dining since 1995</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num"><span data-count="174">0</span><span class="plus">K</span></div>
+      <div class="stat-label">Square Feet</div>
+      <div class="stat-detail">Automated manufacturing facility in Muar</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num"><span data-count="6">0</span><span class="plus">+</span></div>
+      <div class="stat-label">Markets Served</div>
+      <div class="stat-detail">US · Middle East · Africa · India · Philippines · Chile</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num"><span data-count="100">0</span><span class="plus">+</span></div>
+      <div class="stat-label">Dining Designs</div>
+      <div class="stat-detail">OEM and ODM-ready, fully customizable</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= ABOUT ============= -->
+<section id="about">
+  <div class="section-head reveal">
+    <div class="section-head-meta">
+      <span class="eyebrow"><span class="num">02</span>The Craft</span>
+    </div>
+    <h2 class="h-display h2 section-head-title">
+      Rooted in <em>Muar,</em> Malaysia's furniture capital.
+    </h2>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-img reveal">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1000,h=1250,fit=crop/AUzCIvE1HVdJU5eg/20161209_162748-Pr6yq1hGan9gcpOA.jpg" alt="Sim Hup Seng manufacturing facility in Muar" loading="lazy">
+      <div class="about-img-badge">Our 174,000 sq ft home in Muar</div>
+    </div>
+
+    <div class="about-content reveal">
+      <p class="lead">
+        For over three decades, we've dedicated ourselves to a single craft — premium dining tables and chairs that anchor the rooms where families gather.
+      </p>
+
+      <div class="strengths">
+        <div class="strength">
+          <span class="strength-num">01 / Scale</span>
+          <h3 class="strength-title">Massive Production</h3>
+          <p class="strength-desc">A 174,000+ sq ft (4 acres) facility with automated machinery built for high-volume container orders.</p>
+        </div>
+        <div class="strength">
+          <span class="strength-num">02 / OEM &amp; ODM</span>
+          <h3 class="strength-title">Tailored Customization</h3>
+          <p class="strength-desc">Send us your designs or choose from our catalog — we adapt dimensions, materials, and packaging.</p>
+        </div>
+        <div class="strength">
+          <span class="strength-num">03 / Quality</span>
+          <h3 class="strength-title">Strict QC</h3>
+          <p class="strength-desc">CARB P2 compliant materials and ISTA MOP packaging standards on every shipment.</p>
+        </div>
+        <div class="strength">
+          <span class="strength-num">04 / Export</span>
+          <h3 class="strength-title">Global Expertise</h3>
+          <p class="strength-desc">Deep understanding of US and Middle East market trends, compliance, and logistics.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= PROCESS ============= -->
+<section class="process">
+  <div class="section-head reveal">
+    <div class="section-head-meta">
+      <span class="eyebrow"><span class="num">03</span>The Process</span>
+    </div>
+    <h2 class="h-display h2 section-head-title">
+      From sketch to <em>shipping container.</em>
+    </h2>
+  </div>
+
+  <div class="process-grid">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <h3 class="step-title">Design &amp; Sampling</h3>
+      <p class="step-desc">We turn your concepts into reality — OEM customization or catalog selection with rapid prototyping and precise sampling for final approval.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <h3 class="step-title">Mass Production</h3>
+      <p class="step-desc">Powered by our 174,000+ sq ft facility, we deliver efficient, high-volume production with stable capacity that meets every timeline.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <h3 class="step-title">Strict QC</h3>
+      <p class="step-desc">Comprehensive inspections at every stage — structural durability, flawless finishing, and secure packaging to ISTA standards.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <h3 class="step-title">Global Shipping</h3>
+      <p class="step-desc">Expert container loading and seamless export logistics to the Middle East, Africa, India, Philippines, US, and Chile.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= COLLECTION ============= -->
+<section id="collection">
+  <div class="section-head reveal">
+    <div class="section-head-meta">
+      <span class="eyebrow"><span class="num">04</span>The Collection</span>
+    </div>
+    <h2 class="h-display h2 section-head-title">
+      Dining sets, <em>built to last</em> generations.
+    </h2>
+  </div>
+
+  <div class="collection-grid">
+    <div class="product col-7 feature reveal">
+      <div class="product-img">
+        <span class="product-tag">Featured</span>
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1100,fit=crop/AUzCIvE1HVdJU5eg/a3-4c_20260326150546_221_2-oznY8HkqwXu64Apd.jpg" alt="SHS 10030 contemporary 8-seater dining set" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-model">Model SHS 10030</div>
+        <h3 class="product-name">8-Seater Contemporary Set</h3>
+        <p class="product-meta">China Ash Veneer · L2200 × W1000 × H750 mm · Cross-stitch chair backs</p>
+      </div>
+    </div>
+
+    <div class="product col-5 tall reveal">
+      <div class="product-img">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=800,fit=crop/AUzCIvE1HVdJU5eg/a3-4c_20260327115411_229_2-nVjjmhol5BOiabdJ.png" alt="SHS 10057 eight-seater dining set" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-model">Model SHS 10057</div>
+        <h3 class="product-name">8-Seater with Storage</h3>
+        <p class="product-meta">Solid Rubberwood · Built-in drawer · Antique &amp; Monein Oak</p>
+      </div>
+    </div>
+
+    <div class="product col-4 reveal">
+      <div class="product-img">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=700,fit=crop/AUzCIvE1HVdJU5eg/a3-4c_20260326150546_220_2-Yro4choG1GPy3MSL.jpg" alt="SHS 10032 coastal 6-seater" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-model">Model SHS 10032</div>
+        <h3 class="product-name">6-Seater Two-Tone Coastal</h3>
+        <p class="product-meta">1.6m two-tone top · White frame · Slat-back chairs</p>
+      </div>
+    </div>
+
+    <div class="product col-4 reveal">
+      <div class="product-img">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=700,fit=crop/AUzCIvE1HVdJU5eg/a3-4c_20260326150546_225_2-qQZNZRiSXZqtVknv.jpg" alt="SHS 10035 counter height storage set" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-model">Model SHS 10035</div>
+        <h3 class="product-name">Counter Height Storage</h3>
+        <p class="product-meta">Mindy Veneer · Two storage shelves · PU leather chairs</p>
+      </div>
+    </div>
+
+    <div class="product col-4 reveal">
+      <div class="product-img">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=700,fit=crop/AUzCIvE1HVdJU5eg/a3-4c_20260326150546_224_2-jLPkGbOj5SiOJRHe.jpg" alt="SHS 10036 farmhouse dining set" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-model">Model SHS 10036</div>
+        <h3 class="product-name">5-Piece Farmhouse Set</h3>
+        <p class="product-meta">Atlantis Oak · Counter height · Cross-back chairs &amp; bench</p>
+      </div>
+    </div>
+
+    <div class="product col-6 reveal">
+      <div class="product-img">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=900,fit=crop/AUzCIvE1HVdJU5eg/a3-4c_20260326150546_223_2-uWoFlbFdXwY1wmDK.jpg" alt="SHS 10037 modern luxury dining set" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-model">Model SHS 10037</div>
+        <h3 class="product-name">8-Seater Modern Luxury</h3>
+        <p class="product-meta">V-shaped pedestal base · White PU leather · Channel-tufted backs</p>
+      </div>
+    </div>
+
+    <div class="product col-6 reveal">
+      <div class="product-img">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=900,fit=crop/AUzCIvE1HVdJU5eg/a3-4c_20260326150546_222_2-wA79I4diSiZHHS8L.jpg" alt="SHS 10038 classic trestle set" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-model">Model SHS 10038</div>
+        <h3 class="product-name">6-Seater Classic Trestle</h3>
+        <p class="product-meta">Curved trestle base · Grey tufted fabric · Premium retail</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="collection-cta reveal">
+    <h3>Hundreds more in our full catalog — built to your specification.</h3>
+    <a href="https://wa.me/60126208101?text=Hi%20Sim%20Hup%20Seng%20Furniture,%20I%20visited%20your%20website%20and%20I%20am%20interested%20in%20your%20wholesale%20dining%20collections.%20Could%20you%20please%20share%20your%20latest%20E-catalog%20and%20container%20pricing?" class="btn btn-primary" target="_blank" rel="noopener">
+      Request E-Catalog <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============= FACTORY ============= -->
+<section class="factory">
+  <div class="section-head reveal">
+    <div class="section-head-meta">
+      <span class="eyebrow"><span class="num">05</span>Inside the Workshop</span>
+    </div>
+    <h2 class="h-display h2 section-head-title">
+      Where <em>4 acres</em> of craft live.
+    </h2>
+  </div>
+
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,h=750,fit=crop/AUzCIvE1HVdJU5eg/20161209_162920-kLNDJdYQWR1r0DKC.jpg" alt="Factory floor" loading="lazy">
+      <div class="gallery-cap"><span class="num">i.</span>Main assembly floor</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,h=750,fit=crop/AUzCIvE1HVdJU5eg/10-83aQmI74SzEGFCSV.JPG" alt="Workshop detail" loading="lazy">
+      <div class="gallery-cap"><span class="num">ii.</span>Material preparation</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,h=750,fit=crop/AUzCIvE1HVdJU5eg/4-CNrxD4wn0OIhXy4n.JPG" alt="Production line" loading="lazy">
+      <div class="gallery-cap"><span class="num">iii.</span>Precision machining</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,h=750,fit=crop/AUzCIvE1HVdJU5eg/20161228_122151-14XVzs8TwdyUCV0g.jpg" alt="Storage and inventory" loading="lazy">
+      <div class="gallery-cap"><span class="num">iv.</span>Inventory &amp; warehousing</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,h=750,fit=crop/AUzCIvE1HVdJU5eg/9-1I5HFPJSi6QHZOz5.JPG" alt="Quality control" loading="lazy">
+      <div class="gallery-cap"><span class="num">v.</span>Quality inspection</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,h=750,fit=crop/AUzCIvE1HVdJU5eg/3-cLOfbUDMsYSOTita.JPG" alt="Workshop process" loading="lazy">
+      <div class="gallery-cap"><span class="num">vi.</span>Finishing &amp; staining</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,h=750,fit=crop/AUzCIvE1HVdJU5eg/5-lEMvGpZ8tMDBPxAL.JPG" alt="Showroom" loading="lazy">
+      <div class="gallery-cap"><span class="num">vii.</span>Display showroom</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CONTACT ============= -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <span class="eyebrow"><span class="num">06</span>Partner With Us</span>
+      <h2>
+        Ready to <em>begin?</em>
+      </h2>
+      <p class="lead">
+        Send us a message on WhatsApp for our latest e-catalog, OEM/ODM inquiries, or container pricing. We typically respond within a few hours.
+      </p>
+      <div class="contact-actions">
+        <a href="https://wa.me/60126208101?text=Hi%20Sim%20Hup%20Seng%20Furniture,%20I%20visited%20your%20website%20and%20I%20am%20interested%20in%20your%20wholesale%20dining%20collections.%20Could%20you%20please%20share%20your%20latest%20E-catalog%20and%20container%20pricing?" class="btn-whatsapp" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp Us
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-card reveal">
+      <div class="contact-row">
+        <div class="label">Phone</div>
+        <div class="value"><a href="tel:+60126208101">+60 12 620 8101</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="label">Email</div>
+        <div class="value"><a href="mailto:mktg@simhupsengfurniture.com">mktg@simhupsengfurniture.com</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="label">Workshop</div>
+        <div class="value">Muar, Johor, Malaysia</div>
+      </div>
+      <div class="contact-row">
+        <div class="label">Markets</div>
+        <div class="value">US · Middle East · Africa · Asia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= FOOTER ============= -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Sim Hup <em>Seng</em></div>
+      <p class="footer-tag">A 30-year heritage of premium dining furniture, manufactured in Muar, Malaysia — for partners worldwide.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#heritage">Heritage</a></li>
+        <li><a href="#about">The Craft</a></li>
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get In Touch</h4>
+      <ul>
+        <li><a href="tel:+60126208101">+60 12 620 8101</a></li>
+        <li><a href="mailto:mktg@simhupsengfurniture.com">mktg@simhupsengfurniture.com</a></li>
+        <li><a href="mailto:mktg.shs@gmail.com">mktg.shs@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Sim Hup Seng Furniture Sdn Bhd. All rights reserved.</span>
+    <span>Crafted in Muar, Malaysia</span>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// Nav scroll effect
+// ============================================================
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ============================================================
+// Mobile menu
+// ============================================================
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileDrawer = document.getElementById('mobileDrawer');
+mobileToggle.addEventListener('click', () => {
+  mobileDrawer.classList.toggle('open');
+});
+mobileDrawer.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => mobileDrawer.classList.remove('open'));
+});
+
+// ============================================================
+// Scroll reveal
+// ============================================================
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ============================================================
+// Counter animation for stats
+// ============================================================
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = parseInt(el.getAttribute('data-count'), 10);
+      const duration = 1800;
+      const start = performance.now();
+      const tick = (now) => {
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.floor(target * eased);
+        if (t < 1) requestAnimationFrame(tick);
+        else el.textContent = target;
+      };
+      requestAnimationFrame(tick);
+      countObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
+</script>
+
+</body>
+</html>
